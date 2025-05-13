@@ -1,4 +1,6 @@
 <?php
+// Creamos la conexión a la base de datos
+// Definimos los parámetros de conexión
 $servername = "localhost";
 $database = "sanidad";
 $username = "root";

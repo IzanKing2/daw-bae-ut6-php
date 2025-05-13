@@ -42,11 +42,13 @@
                 <div id="tabla_hospitales">
                     <?php
                     // Realizamos la consulta a la base de datos
-                    $resultado = mysqli_query($conexion, "SELECT * FROM hospital");
+                    $resultado = mysqli_query($conexion, "SELECT * FROM hospital"); // Consulta para obtener todos los hospitales
+                    // Verificamos si se encontraron resultados
                     if (mysqli_num_rows($resultado) > 0) {
-                        echo "<table id='hospitales'>";
+                        echo "<table id='hospitales'>"; // Creamos la tabla
                         echo "<tr><th>ID</th><th>Nombre</th><th>Dirección</th><th>Teléfono</th><th>Total Camas</th><th>Acciones</th></tr>";
-                        while ($fila = mysqli_fetch_row($resultado)) {
+                        while ($fila = mysqli_fetch_row($resultado)) { // Recorremos los resultados
+                            // Mostramos cada fila en la tabla
                             echo "<tr class='hospital'>";
                             for ($i = 0; $i < count($fila); $i++) {
                                 echo "<td>" . $fila[$i] . "</td>";
@@ -64,24 +66,6 @@
                     ?>
                 </div>
             </section>
-
-            <!-- div oculto para editar hospitales -->
-            <div id ="div_editar" style="display:none;">
-                <h2>Editar Hospital</h2>
-                <form id="form_editar" action="editar_hospital.php" method="post">
-                    <input type="hidden" id="id_editar" name="id">
-                    <label for="nombre_editar">Nombre del Hospital:</label>
-                    <input type="text" id="nombre_editar" name="nombre">
-                    <br>
-                    <label for="direccion_editar">Dirección:</label>
-                    <input type="text" id="direccion_editar" name="direccion">
-                    <br>
-                    <label for="telefono_editar">Teléfono:</label>
-                    <input type="text" id="telefono_editar" name="telefono">
-                    <br>
-                    <input type="submit" value="Actualizar Hospital">
-                </form>
-            </div>
 
             <!-- Sección para borrar hospitales -->
             <section id="borrar">

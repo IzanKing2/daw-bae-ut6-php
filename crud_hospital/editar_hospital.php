@@ -9,13 +9,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $telefono = $_POST['telefono'];
     $total_camas = $_POST['total_camas'];
 
+    // Validar que los campos no estén vacíos
     if (!$id || !$nombre || !$direccion || !$telefono || !$total_camas) {
         exit("Todos los campos son obligatorios.");
     }
 
+    // Construir la consulta SQL para actualizar el hospital
     $sql = "UPDATE hospital SET nombre='$nombre', direccion='$direccion', telefono='$telefono', total_camas='$total_camas' WHERE HOSPITAL_COD='$id'";
-    if (mysqli_query($conexion, $sql)) {
-        header("Location: index.php");
+    if (mysqli_query($conexion, $sql)) { // Ejecutar la consulta
+        header("Location: index.php"); // Redirigir a la página principal
         exit;
     } else {
         exit("Error al actualizar: " . mysqli_error($conexion));
@@ -31,6 +33,7 @@ $h = mysqli_fetch_assoc($res);
 ?>
 <link rel="stylesheet" href="style.css">
 
+<!-- Formulario para editar hospital -->
 <h2>Editar Hospital</h2>
 <form method="post" class="form-editar-hospital">
     <input type="hidden" name="id" value="<?php echo $h['HOSPITAL_COD']; ?>">

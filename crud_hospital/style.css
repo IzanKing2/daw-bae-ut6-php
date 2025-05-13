@@ -1,3 +1,15 @@
+/* 
+Estilo CSS para la aplicación CRUD de Hospitales
+Este archivo contiene los estilos CSS para la interfaz de usuario de la aplicación CRUD de Hospitales.
+Los estilos que se incluyen son:
+
+- Estilos generales para el cuerpo, encabezados y formularios.
+- Estilos para el formulario de búsqueda y la lista de hospitales.
+- Estilos para la sección de edición de hospitales.
+- Estilos para la tabla que muestra los hospitales.
+- Estilos para el pie de página.
+ */
+
 body {
     font-family: sans-serif;
     margin: 0;
